@@ -1,0 +1,822 @@
+[
+  {
+    "fighter1": "Nassourdine Imavov",
+    "fighter2": "Caio Borralho",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Nassourdine Imavov",
+        "odds": 110,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Nassourdine Imavov",
+        "odds": 105,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Nassourdine Imavov",
+        "odds": 100,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Nassourdine Imavov",
+        "odds": 103,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Nassourdine Imavov",
+        "odds": 115,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Caio Borralho",
+        "odds": -130,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Caio Borralho",
+        "odds": -125,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Caio Borralho",
+        "odds": -128,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Caio Borralho",
+        "odds": -120,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Caio Borralho",
+        "odds": -135,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:51.669178"
+  },
+  {
+    "fighter1": "Benoit Saint-Denis",
+    "fighter2": "Mauricio Ruffy",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Benoit Saint-Denis",
+        "odds": 170,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Benoit Saint-Denis",
+        "odds": 164,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Benoit Saint-Denis",
+        "odds": 152,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Benoit Saint-Denis",
+        "odds": 167,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Benoit Saint-Denis",
+        "odds": 170,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Mauricio Ruffy",
+        "odds": -200,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Mauricio Ruffy",
+        "odds": -198,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Mauricio Ruffy",
+        "odds": -196,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Mauricio Ruffy",
+        "odds": -198,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Mauricio Ruffy",
+        "odds": -195,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:52.118893"
+  },
+  {
+    "fighter1": "Bolaji Oki",
+    "fighter2": "Mason Jones",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Bolaji Oki",
+        "odds": 135,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Bolaji Oki",
+        "odds": 120,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Bolaji Oki",
+        "odds": 132,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Bolaji Oki",
+        "odds": 126,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Bolaji Oki",
+        "odds": 125,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Mason Jones",
+        "odds": -155,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Mason Jones",
+        "odds": -142,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Mason Jones",
+        "odds": -170,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Mason Jones",
+        "odds": -147,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Mason Jones",
+        "odds": -145,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:52.649008"
+  },
+  {
+    "fighter1": "Modestas Bukauskas",
+    "fighter2": "Paul Craig",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Modestas Bukauskas",
+        "odds": -335,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Modestas Bukauskas",
+        "odds": -325,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Modestas Bukauskas",
+        "odds": -330,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Modestas Bukauskas",
+        "odds": -322,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Modestas Bukauskas",
+        "odds": -330,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Paul Craig",
+        "odds": 275,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Paul Craig",
+        "odds": 260,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Paul Craig",
+        "odds": 240,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Paul Craig",
+        "odds": 263,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Paul Craig",
+        "odds": 275,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:53.065846"
+  },
+  {
+    "fighter1": "Fares Ziam",
+    "fighter2": "Kaue Fernandes",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Fares Ziam",
+        "odds": -330,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Fares Ziam",
+        "odds": -340,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Fares Ziam",
+        "odds": -310,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Fares Ziam",
+        "odds": -339,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Fares Ziam",
+        "odds": -320,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Kaue Fernandes",
+        "odds": 270,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Kaue Fernandes",
+        "odds": 270,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Kaue Fernandes",
+        "odds": 230,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Kaue Fernandes",
+        "odds": 276,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Kaue Fernandes",
+        "odds": 265,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:53.517040"
+  },
+  {
+    "fighter1": "Patricio Freire",
+    "fighter2": "Losene Keita",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Patricio Freire",
+        "odds": 152,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Patricio Freire",
+        "odds": 170,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Patricio Freire",
+        "odds": 168,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Patricio Freire",
+        "odds": 177,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Patricio Freire",
+        "odds": 155,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Losene Keita",
+        "odds": -177,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Losene Keita",
+        "odds": -205,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Losene Keita",
+        "odds": -220,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Losene Keita",
+        "odds": -210,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Losene Keita",
+        "odds": -180,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:53.931945"
+  },
+  {
+    "fighter1": "Oumar Sy",
+    "fighter2": "Brendson Ribeiro",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Oumar Sy",
+        "odds": -430,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Oumar Sy",
+        "odds": -425,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Oumar Sy",
+        "odds": -390,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Oumar Sy",
+        "odds": -410,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Oumar Sy",
+        "odds": -405,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Brendson Ribeiro",
+        "odds": 330,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Brendson Ribeiro",
+        "odds": 330,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Brendson Ribeiro",
+        "odds": 280,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Brendson Ribeiro",
+        "odds": 326,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Brendson Ribeiro",
+        "odds": 330,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:54.614755"
+  },
+  {
+    "fighter1": "Marcin Tybura",
+    "fighter2": "Ante Delija",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Marcin Tybura",
+        "odds": 100,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Marcin Tybura",
+        "odds": -102,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Marcin Tybura",
+        "odds": -111,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Marcin Tybura",
+        "odds": -102,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Marcin Tybura",
+        "odds": -105,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Ante Delija",
+        "odds": -120,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Ante Delija",
+        "odds": -118,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Ante Delija",
+        "odds": -115,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Ante Delija",
+        "odds": -114,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Ante Delija",
+        "odds": -115,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:55.127627"
+  },
+  {
+    "fighter1": "Rinat Fakhretdinov",
+    "fighter2": "Andreas Gustafsson Berg",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Rinat Fakhretdinov",
+        "odds": 102,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Rinat Fakhretdinov",
+        "odds": -105,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Rinat Fakhretdinov",
+        "odds": -106,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Rinat Fakhretdinov",
+        "odds": -105,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Rinat Fakhretdinov",
+        "odds": -105,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Andreas Gustafsson Berg",
+        "odds": -122,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Andreas Gustafsson Berg",
+        "odds": -115,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Andreas Gustafsson Berg",
+        "odds": -120,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Andreas Gustafsson Berg",
+        "odds": -111,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Andreas Gustafsson Berg",
+        "odds": -115,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:55.529535"
+  },
+  {
+    "fighter1": "Robert Ruchala",
+    "fighter2": "William Gomis",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Robert Ruchala",
+        "odds": 190,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Robert Ruchala",
+        "odds": 190,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Robert Ruchala",
+        "odds": 180,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Robert Ruchala",
+        "odds": 190,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Robert Ruchala",
+        "odds": 185,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "William Gomis",
+        "odds": -225,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "William Gomis",
+        "odds": -230,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "William Gomis",
+        "odds": -235,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "William Gomis",
+        "odds": -226,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "William Gomis",
+        "odds": -215,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:56.080844"
+  },
+  {
+    "fighter1": "Sam Patterson",
+    "fighter2": "Trey Waters",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Sam Patterson",
+        "odds": -145,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Sam Patterson",
+        "odds": -162,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Sam Patterson",
+        "odds": -174,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Sam Patterson",
+        "odds": -163,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Sam Patterson",
+        "odds": -150,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Trey Waters",
+        "odds": 125,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Trey Waters",
+        "odds": 136,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Trey Waters",
+        "odds": 136,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Trey Waters",
+        "odds": 139,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Trey Waters",
+        "odds": 130,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:56.470794"
+  },
+  {
+    "fighter1": "Brad Tavares",
+    "fighter2": "Robert Bryczek",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Brad Tavares",
+        "odds": -202,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Brad Tavares",
+        "odds": -230,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Brad Tavares",
+        "odds": -235,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Brad Tavares",
+        "odds": -237,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Brad Tavares",
+        "odds": -210,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Robert Bryczek",
+        "odds": 172,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Robert Bryczek",
+        "odds": 190,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Robert Bryczek",
+        "odds": 180,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Robert Bryczek",
+        "odds": 198,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Robert Bryczek",
+        "odds": 180,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:56.809666"
+  },
+  {
+    "fighter1": "Shauna Bannon",
+    "fighter2": "Sam Hughes",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Shauna Bannon",
+        "odds": 280,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Shauna Bannon",
+        "odds": 250,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Shauna Bannon",
+        "odds": 220,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Shauna Bannon",
+        "odds": 238,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Shauna Bannon",
+        "odds": 255,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Sam Hughes",
+        "odds": -340,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Sam Hughes",
+        "odds": -310,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Sam Hughes",
+        "odds": -295,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Sam Hughes",
+        "odds": -288,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Sam Hughes",
+        "odds": -305,
+        "book": "Circa Sports"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:57.181327"
+  },
+  {
+    "fighter1": "Sola Axel",
+    "fighter2": "Rhys McKee",
+    "event_name": "UFC Fight Night: Imavov vs. Borralho Odds | Fight Odds",
+    "event_date": "2025-08-30",
+    "weight_class": "Unknown",
+    "odds_data": [
+      {
+        "fighter_name": "Sola Axel",
+        "odds": -132,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Sola Axel",
+        "odds": -125,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Sola Axel",
+        "odds": -128,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Rhys McKee",
+        "odds": 112,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Rhys McKee",
+        "odds": 105,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Rhys McKee",
+        "odds": 110,
+        "book": "Pinnacle"
+      }
+    ],
+    "scraped_at": "2025-08-30T22:55:57.491247"
+  }
+]
