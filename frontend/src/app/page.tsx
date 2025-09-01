@@ -52,11 +52,11 @@ export default function Home() {
       setLoading(true)
       
       // Load fights from API
-      const fightsResponse = await fetch('http://localhost:5000/api/fights')
+      const fightsResponse = await fetch('https://mma-ev-tool.onrender.com/api/fights')
       const fightsData = await fightsResponse.json()
       
       // Load EV opportunities from API  
-      const evResponse = await fetch('http://localhost:5000/api/ev-opportunities')
+      const evResponse = await fetch('https://mma-ev-tool.onrender.com/api/ev-opportunities')
       const evData = await evResponse.json()
       
       if (fightsData.success) {
