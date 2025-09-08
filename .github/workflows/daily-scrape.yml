@@ -1,0 +1,76 @@
+name: Daily Odds Scraping
+
+on:
+  schedule:
+    # Run at 9 AM EST (13:00 UTC) every day
+    - cron: '0 13 * * *'
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      event_url:
+        description: 'FightOdds.io Event URL'
+        required: false
+        default: 'https://fightodds.io'
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Chrome and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+        
+    - name: Install Python dependencies
+      run: |
+        cd backend
+        pip install selenium beautifulsoup4 requests python-dateutil
+        
+    - name: Run scraper
+      run: |
+        cd backend
+        # For now, use a default URL - you'll need to update this
+        python selenium_scraper_automated.py 'https://fightodds.io'
+      env:
+        # Tell Selenium to use system Chrome
+        CHROME_BIN: /usr/bin/chromium-browser
+        CHROMEDRIVER_PATH: /usr/bin/chromedriver
+        
+    - name: Update data files
+      run: |
+        # Check if data was actually updated
+        if [ -f data/fights.json ]; then
+          echo "Data files updated successfully"
+          ls -la data/
+        else
+          echo "No data files found - scraping may have failed"
+          exit 1
+        fi
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        # Only commit if there are changes
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Daily odds update - $(date +'%Y-%m-%d %H:%M UTC')"
+          git push
+        fi
+        
+    - name: Trigger Render redeploy
+      if: success()
+      run: |
+        # Optional: ping your Render service to wake it up
+        curl -f https://mma-ev-tool.onrender.com/api/fights || true
