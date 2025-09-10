@@ -63,7 +63,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add data/
+        git add backend/data/  # ← Add from the correct path
         # Only commit if there are changes
         if git diff --staged --quiet; then
           echo "No changes to commit"
