@@ -57,7 +57,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:33.766842"
+    "scraped_at": "2025-09-10T00:58:59.164328"
   },
   {
     "fighter1": "Rob Font",
@@ -68,7 +68,7 @@
     "odds_data": [
       {
         "fighter_name": "Rob Font",
-        "odds": -125,
+        "odds": -130,
         "book": "BetOnline"
       },
       {
@@ -93,7 +93,7 @@
       },
       {
         "fighter_name": "David Martinez",
-        "odds": 105,
+        "odds": 110,
         "book": "BetOnline"
       },
       {
@@ -117,7 +117,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:34.199978"
+    "scraped_at": "2025-09-10T00:58:59.570102"
   },
   {
     "fighter1": "Rafa Garcia",
@@ -177,7 +177,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:34.620756"
+    "scraped_at": "2025-09-10T00:58:59.986343"
   },
   {
     "fighter1": "Kelvin Gastelum",
@@ -188,7 +188,7 @@
     "odds_data": [
       {
         "fighter_name": "Kelvin Gastelum",
-        "odds": -260,
+        "odds": -240,
         "book": "BetOnline"
       },
       {
@@ -213,7 +213,7 @@
       },
       {
         "fighter_name": "Dustin Stoltzfus",
-        "odds": 220,
+        "odds": 205,
         "book": "BetOnline"
       },
       {
@@ -237,7 +237,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:34.991344"
+    "scraped_at": "2025-09-10T00:59:00.352297"
   },
   {
     "fighter1": "Quang Le",
@@ -297,7 +297,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:35.428394"
+    "scraped_at": "2025-09-10T00:59:00.766031"
   },
   {
     "fighter1": "Alexander Hernandez",
@@ -347,7 +347,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:35.842621"
+    "scraped_at": "2025-09-10T00:59:01.238128"
   },
   {
     "fighter1": "Dusko Todorovic",
@@ -407,7 +407,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:36.255746"
+    "scraped_at": "2025-09-10T00:59:01.663085"
   },
   {
     "fighter1": "Claudio Puelles",
@@ -467,7 +467,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:36.620552"
+    "scraped_at": "2025-09-10T00:59:02.036191"
   },
   {
     "fighter1": "Amanda Lemos",
@@ -527,7 +527,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:37.053164"
+    "scraped_at": "2025-09-10T00:59:02.475072"
   },
   {
     "fighter1": "Luis Gurule",
@@ -587,7 +587,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:37.466783"
+    "scraped_at": "2025-09-10T00:59:02.889636"
   },
   {
     "fighter1": "Sedriques Dumas",
@@ -647,7 +647,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:37.838859"
+    "scraped_at": "2025-09-10T00:59:03.252974"
   },
   {
     "fighter1": "Alden Coria",
@@ -707,7 +707,7 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:38.266549"
+    "scraped_at": "2025-09-10T00:59:03.678049"
   },
   {
     "fighter1": "Montserrat Rendon",
@@ -762,6 +762,6 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T00:35:38.677047"
+    "scraped_at": "2025-09-10T00:59:04.089260"
   }
 ]
