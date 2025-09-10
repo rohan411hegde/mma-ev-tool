@@ -71,9 +71,3 @@ jobs:
           git commit -m "Daily odds update - $(date +'%Y-%m-%d %H:%M UTC')"
           git push
         fi
-        
-    - name: Trigger Render redeploy
-      if: success()
-      run: |
-        # Optional: ping your Render service to wake it up
-        curl -f https://mma-ev-tool.onrender.com/api/fights || true
