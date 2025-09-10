@@ -11,7 +11,7 @@ CORS(app)  # Allow frontend to connect
 def load_scraped_data():
     """Load the latest scraped fight data"""
     try:
-        with open('../data/fights.json', 'r') as f:
+        with open('data/fights.json', 'r') as f:
             fights_data = json.load(f)
         
         # Convert back to Fight objects for EV calculation
