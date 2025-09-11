@@ -3,12 +3,12 @@
     "fighter1": "Diego Lopes",
     "fighter2": "Jean Silva",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Diego Lopes",
-        "odds": 198,
+        "odds": 196,
         "book": "BetOnline"
       },
       {
@@ -28,12 +28,12 @@
       },
       {
         "fighter_name": "Diego Lopes",
-        "odds": 190,
+        "odds": 210,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Jean Silva",
-        "odds": -233,
+        "odds": -231,
         "book": "BetOnline"
       },
       {
@@ -53,27 +53,27 @@
       },
       {
         "fighter_name": "Jean Silva",
-        "odds": -220,
+        "odds": -245,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:35.675021"
+    "scraped_at": "2025-09-11T13:38:07.600344"
   },
   {
     "fighter1": "Rob Font",
     "fighter2": "David Martinez",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Rob Font",
-        "odds": -130,
+        "odds": -125,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Rob Font",
-        "odds": -135,
+        "odds": -130,
         "book": "DraftKings"
       },
       {
@@ -83,7 +83,7 @@
       },
       {
         "fighter_name": "Rob Font",
-        "odds": -132,
+        "odds": -131,
         "book": "Pinnacle"
       },
       {
@@ -93,12 +93,12 @@
       },
       {
         "fighter_name": "David Martinez",
-        "odds": 110,
+        "odds": 105,
         "book": "BetOnline"
       },
       {
         "fighter_name": "David Martinez",
-        "odds": 114,
+        "odds": 110,
         "book": "DraftKings"
       },
       {
@@ -108,7 +108,7 @@
       },
       {
         "fighter_name": "David Martinez",
-        "odds": 113,
+        "odds": 112,
         "book": "Pinnacle"
       },
       {
@@ -117,23 +117,23 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:36.074211"
+    "scraped_at": "2025-09-11T13:38:08.021936"
   },
   {
     "fighter1": "Rafa Garcia",
     "fighter2": "Jared Gordon",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Rafa Garcia",
-        "odds": 195,
+        "odds": 205,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Rafa Garcia",
-        "odds": 200,
+        "odds": 205,
         "book": "DraftKings"
       },
       {
@@ -143,22 +143,22 @@
       },
       {
         "fighter_name": "Rafa Garcia",
-        "odds": 206,
+        "odds": 208,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Rafa Garcia",
-        "odds": 195,
+        "odds": 220,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Jared Gordon",
-        "odds": -230,
+        "odds": -240,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Jared Gordon",
-        "odds": -245,
+        "odds": -250,
         "book": "DraftKings"
       },
       {
@@ -168,22 +168,22 @@
       },
       {
         "fighter_name": "Jared Gordon",
-        "odds": -247,
+        "odds": -249,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Jared Gordon",
-        "odds": -225,
+        "odds": -260,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:36.480199"
+    "scraped_at": "2025-09-11T13:38:08.433441"
   },
   {
     "fighter1": "Kelvin Gastelum",
     "fighter2": "Dustin Stoltzfus",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -203,7 +203,7 @@
       },
       {
         "fighter_name": "Kelvin Gastelum",
-        "odds": -261,
+        "odds": -253,
         "book": "Pinnacle"
       },
       {
@@ -228,7 +228,7 @@
       },
       {
         "fighter_name": "Dustin Stoltzfus",
-        "odds": 217,
+        "odds": 210,
         "book": "Pinnacle"
       },
       {
@@ -237,13 +237,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:36.882973"
+    "scraped_at": "2025-09-11T13:38:08.897855"
   },
   {
     "fighter1": "Quang Le",
     "fighter2": "Santiago Luna",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -258,12 +258,12 @@
       },
       {
         "fighter_name": "Quang Le",
-        "odds": -102,
+        "odds": 108,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Quang Le",
-        "odds": 112,
+        "odds": 116,
         "book": "Pinnacle"
       },
       {
@@ -283,12 +283,12 @@
       },
       {
         "fighter_name": "Santiago Luna",
-        "odds": -125,
+        "odds": -138,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Santiago Luna",
-        "odds": -130,
+        "odds": -136,
         "book": "Pinnacle"
       },
       {
@@ -297,23 +297,23 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:37.246275"
+    "scraped_at": "2025-09-11T13:38:09.267840"
   },
   {
     "fighter1": "Alexander Hernandez",
     "fighter2": "Carlos Diego Ferreira",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Alexander Hernandez",
-        "odds": -115,
+        "odds": 100,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Alexander Hernandez",
-        "odds": -115,
+        "odds": -105,
         "book": "DraftKings"
       },
       {
@@ -323,22 +323,22 @@
       },
       {
         "fighter_name": "Alexander Hernandez",
-        "odds": -111,
+        "odds": -104,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Alexander Hernandez",
-        "odds": -110,
+        "odds": 105,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Carlos Diego Ferreira",
-        "odds": -105,
+        "odds": -120,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Carlos Diego Ferreira",
-        "odds": -105,
+        "odds": -115,
         "book": "DraftKings"
       },
       {
@@ -348,22 +348,22 @@
       },
       {
         "fighter_name": "Carlos Diego Ferreira",
-        "odds": -105,
+        "odds": -113,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Carlos Diego Ferreira",
-        "odds": -110,
+        "odds": -125,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:37.669296"
+    "scraped_at": "2025-09-11T13:38:09.692399"
   },
   {
     "fighter1": "Dusko Todorovic",
     "fighter2": "Joaquim Silva",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -378,12 +378,12 @@
       },
       {
         "fighter_name": "Dusko Todorovic",
-        "odds": -330,
+        "odds": -350,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Dusko Todorovic",
-        "odds": -320,
+        "odds": -322,
         "book": "Pinnacle"
       },
       {
@@ -393,7 +393,7 @@
       },
       {
         "fighter_name": "Joaquim Silva",
-        "odds": -110,
+        "odds": 100,
         "book": "BetOnline"
       },
       {
@@ -408,7 +408,7 @@
       },
       {
         "fighter_name": "Joaquim Silva",
-        "odds": -104,
+        "odds": -108,
         "book": "Pinnacle"
       },
       {
@@ -417,18 +417,18 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:38.076528"
+    "scraped_at": "2025-09-11T13:38:10.105613"
   },
   {
     "fighter1": "Claudio Puelles",
     "fighter2": "Tatiana Suarez",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Claudio Puelles",
-        "odds": -110,
+        "odds": -120,
         "book": "BetOnline"
       },
       {
@@ -443,7 +443,7 @@
       },
       {
         "fighter_name": "Claudio Puelles",
-        "odds": -112,
+        "odds": -108,
         "book": "Pinnacle"
       },
       {
@@ -477,13 +477,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:38.458083"
+    "scraped_at": "2025-09-11T13:38:10.467844"
   },
   {
     "fighter1": "Amanda Lemos",
     "fighter2": "Jesus Aguilar",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -513,12 +513,12 @@
       },
       {
         "fighter_name": "Jesus Aguilar",
-        "odds": 175,
+        "odds": 170,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Jesus Aguilar",
-        "odds": 180,
+        "odds": 170,
         "book": "DraftKings"
       },
       {
@@ -528,7 +528,7 @@
       },
       {
         "fighter_name": "Jesus Aguilar",
-        "odds": 181,
+        "odds": 168,
         "book": "Pinnacle"
       },
       {
@@ -537,23 +537,23 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:38.875509"
+    "scraped_at": "2025-09-11T13:38:10.886020"
   },
   {
     "fighter1": "Luis Gurule",
     "fighter2": "Zach Reese",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Luis Gurule",
-        "odds": -205,
+        "odds": -200,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Luis Gurule",
-        "odds": -218,
+        "odds": -205,
         "book": "DraftKings"
       },
       {
@@ -563,7 +563,7 @@
       },
       {
         "fighter_name": "Luis Gurule",
-        "odds": -214,
+        "odds": -199,
         "book": "Pinnacle"
       },
       {
@@ -573,7 +573,7 @@
       },
       {
         "fighter_name": "Zach Reese",
-        "odds": -230,
+        "odds": -240,
         "book": "BetOnline"
       },
       {
@@ -583,12 +583,12 @@
       },
       {
         "fighter_name": "Zach Reese",
-        "odds": -260,
+        "odds": -250,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Zach Reese",
-        "odds": -234,
+        "odds": -237,
         "book": "Pinnacle"
       },
       {
@@ -597,18 +597,18 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:39.276375"
+    "scraped_at": "2025-09-11T13:38:11.290303"
   },
   {
     "fighter1": "Sedriques Dumas",
     "fighter2": "Alessandro Costa",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Sedriques Dumas",
-        "odds": 195,
+        "odds": 205,
         "book": "BetOnline"
       },
       {
@@ -618,12 +618,12 @@
       },
       {
         "fighter_name": "Sedriques Dumas",
-        "odds": 196,
+        "odds": 190,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Sedriques Dumas",
-        "odds": 196,
+        "odds": 198,
         "book": "Pinnacle"
       },
       {
@@ -633,67 +633,67 @@
       },
       {
         "fighter_name": "Alessandro Costa",
-        "odds": -450,
+        "odds": -430,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Alessandro Costa",
-        "odds": -395,
+        "odds": -410,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Alessandro Costa",
-        "odds": -480,
+        "odds": -440,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Alessandro Costa",
-        "odds": -382,
+        "odds": -401,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Alessandro Costa",
-        "odds": -450,
+        "odds": -435,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:39.641920"
+    "scraped_at": "2025-09-11T13:38:11.651445"
   },
   {
     "fighter1": "Alden Coria",
     "fighter2": "Alice Pereira",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Alden Coria",
-        "odds": 350,
+        "odds": 330,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Alden Coria",
-        "odds": 310,
+        "odds": 320,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Alden Coria",
-        "odds": 330,
+        "odds": 310,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Alden Coria",
-        "odds": 307,
+        "odds": 320,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Alden Coria",
-        "odds": 360,
+        "odds": 350,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Alice Pereira",
-        "odds": -140,
+        "odds": -135,
         "book": "BetOnline"
       },
       {
@@ -703,32 +703,32 @@
       },
       {
         "fighter_name": "Alice Pereira",
-        "odds": -154,
+        "odds": -158,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Alice Pereira",
-        "odds": -147,
+        "odds": -154,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Alice Pereira",
-        "odds": -135,
+        "odds": -140,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:40.055499"
+    "scraped_at": "2025-09-11T13:38:12.056458"
   },
   {
     "fighter1": "Montserrat Rendon",
     "fighter2": "Rodrigo Sezinando",
     "event_name": "UFC Event",
-    "event_date": "2025-09-10",
+    "event_date": "2025-09-11",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Montserrat Rendon",
-        "odds": 120,
+        "odds": 115,
         "book": "BetOnline"
       },
       {
@@ -738,27 +738,27 @@
       },
       {
         "fighter_name": "Montserrat Rendon",
-        "odds": 120,
+        "odds": 124,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Montserrat Rendon",
-        "odds": 126,
+        "odds": 131,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Montserrat Rendon",
-        "odds": 115,
+        "odds": 120,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Rodrigo Sezinando",
-        "odds": 170,
+        "odds": 190,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Rodrigo Sezinando",
-        "odds": 164,
+        "odds": 180,
         "book": "DraftKings"
       },
       {
@@ -768,15 +768,15 @@
       },
       {
         "fighter_name": "Rodrigo Sezinando",
-        "odds": 166,
+        "odds": 176,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Rodrigo Sezinando",
-        "odds": 175,
+        "odds": 185,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-10T13:41:40.454449"
+    "scraped_at": "2025-09-11T13:38:12.458055"
   }
 ]
