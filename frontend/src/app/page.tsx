@@ -6,66 +6,28 @@ import EventCard from '@/components/EventCard';
 import EVOpportunities from '@/components/EVOpportunities';
 import { Target, TrendingUp, BarChart3, Calendar } from 'lucide-react';
 
-interface Fight {
-  fighter1: string;
-  fighter2: string;
-  event_name: string;
-  event_date: string;
-  weight_class: string;
-  odds_data: Array<{
-    fighter_name: string;
-    odds: number;
-    book: string;
-  }>;
-  scraped_at?: string;
-}
-
+// Use a generic type to avoid conflicts with EventCard's Fight interface
 interface EventData {
   event_id: string;
   event_name: string;
   event_date: string;
-  fights: Fight[];
+  fights: any[]; // Use any[] to avoid type conflicts with EventCard
   fights_count: number;
   scraped_at: string;
   url?: string;
 }
 
-interface StatsData {
-  total_events: number;
-  total_fights: number;
-  total_opportunities: number;
-  avg_ev_edge: number;
-}
-
 export default function Home() {
   const [selectedEventId, setSelectedEventId] = useState<string>('');
   const [eventData, setEventData] = useState<EventData | null>(null);
-  const [stats, setStats] = useState<StatsData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchStats();
-  }, []);
 
   useEffect(() => {
     if (selectedEventId) {
       fetchEventData(selectedEventId);
     }
   }, [selectedEventId]);
-
-  const fetchStats = async () => {
-    try {
-      const response = await fetch('https://mma-ev-tool.onrender.com/api/stats');
-      const result = await response.json();
-      
-      if (result.success) {
-        setStats(result.data);
-      }
-    } catch (error) {
-      console.error('Failed to fetch stats:', error);
-    }
-  };
 
   const fetchEventData = async (eventId: string) => {
     if (!eventId) return;
@@ -77,7 +39,7 @@ export default function Home() {
       const response = await fetch(`https://mma-ev-tool.onrender.com/api/events/${eventId}/fights`);
       const result = await response.json();
       
-      if (result.success) {
+      if (result.success && result.data) {
         setEventData(result.data);
       } else {
         setError(result.error || 'Failed to load event data');
@@ -106,14 +68,18 @@ export default function Home() {
     }
   };
 
-  const getSportsbooks = (fights: Fight[]) => {
+  const getSportsbooksCount = (fights: any[]) => {
     const books = new Set<string>();
     fights.forEach(fight => {
-      fight.odds_data.forEach(odds => {
-        books.add(odds.book);
-      });
+      if (fight.odds_data && Array.isArray(fight.odds_data)) {
+        fight.odds_data.forEach((odds: any) => {
+          if (odds && odds.book) {
+            books.add(odds.book);
+          }
+        });
+      }
     });
-    return Array.from(books);
+    return books.size;
   };
 
   return (
@@ -135,9 +101,7 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Total Opportunities</p>
-                <p className="text-2xl font-bold text-white">
-                  {stats?.total_opportunities || 0}
-                </p>
+                <p className="text-2xl font-bold text-white">0</p>
               </div>
               <Target className="w-8 h-8 text-orange-500" />
             </div>
@@ -157,9 +121,7 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Avg EV Edge</p>
-                <p className="text-2xl font-bold text-blue-400">
-                  +{stats?.avg_ev_edge?.toFixed(1) || '0.0'}%
-                </p>
+                <p className="text-2xl font-bold text-blue-400">+0.0%</p>
               </div>
               <BarChart3 className="w-8 h-8 text-blue-500" />
             </div>
@@ -169,9 +131,7 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">Active Events</p>
-                <p className="text-2xl font-bold text-purple-400">
-                  {stats?.total_events || 0}
-                </p>
+                <p className="text-2xl font-bold text-purple-400">1</p>
               </div>
               <Calendar className="w-8 h-8 text-purple-500" />
             </div>
@@ -224,7 +184,7 @@ export default function Home() {
                     <div className="flex items-center space-x-4 text-sm text-gray-400 mt-1">
                       <span>📅 {formatDate(eventData.event_date)}</span>
                       <span>🥊 {eventData.fights.length} Fights</span>
-                      <span>📊 {getSportsbooks(eventData.fights).length} Sportsbooks</span>
+                      <span>📊 {getSportsbooksCount(eventData.fights)} Sportsbooks</span>
                     </div>
                   </div>
                 </div>
@@ -253,9 +213,11 @@ export default function Home() {
                     <p className="text-gray-400">No fights found for this event</p>
                   </div>
                 ) : (
-                  eventData.fights.map((fight, index) => (
-                    <EventCard key={`${fight.fighter1}-${fight.fighter2}-${index}`} fight={fight} />
-                  ))
+                  <EventCard 
+                    fights={eventData.fights}
+                    eventName={eventData.event_name}
+                    eventDate={eventData.event_date}
+                  />
                 )}
               </div>
               
@@ -268,7 +230,7 @@ export default function Home() {
         )}
 
         {/* Empty State */}
-        {!eventData && !loading && !error && selectedEventId && (
+        {!eventData && !loading && !error && (
           <div className="mt-8">
             <div className="bg-gray-800 rounded-lg p-8 text-center border border-gray-700">
               <Calendar className="w-12 h-12 text-gray-500 mx-auto mb-4" />

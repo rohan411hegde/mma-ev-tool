@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Target, TrendingUp, AlertCircle, RefreshCw } from 'lucide-react';
+import { Target, RefreshCw, AlertCircle } from 'lucide-react';
 
 interface EVOpportunity {
   fighter: string;
@@ -29,36 +29,33 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
-    if (eventId) {
-      fetchEVOpportunities();
-    } else {
-      setOpportunities([]);
-      setError(null);
-    }
+    fetchEVOpportunities();
   }, [eventId]);
 
   const fetchEVOpportunities = async () => {
-    if (!eventId) return;
-
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(
-        `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`
-      );
+      let url = 'https://mma-ev-tool.onrender.com/api/ev-opportunities';
+      
+      if (eventId) {
+        url = `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`;
+      }
+
+      const response = await fetch(url);
       const result = await response.json();
 
       if (result.success) {
         setOpportunities(result.data || []);
         setLastUpdated(new Date().toISOString());
       } else {
-        setError(result.error || 'Failed to load EV opportunities');
+        setError('Failed to load opportunities');
         setOpportunities([]);
       }
     } catch (error) {
       console.error('Failed to fetch EV opportunities:', error);
-      setError('Network error - could not load opportunities');
+      setError('Network error');
       setOpportunities([]);
     } finally {
       setLoading(false);
@@ -66,38 +63,33 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
   };
 
   const getRecommendationStyle = (recommendation: string) => {
-    switch (recommendation.toLowerCase()) {
-      case 'strong bet':
-        return 'bg-orange-900/50 text-orange-300 border-orange-700';
-      case 'good bet':
-        return 'bg-green-900/50 text-green-300 border-green-700';
-      case 'decent bet':
-        return 'bg-blue-900/50 text-blue-300 border-blue-700';
-      default:
-        return 'bg-gray-700/50 text-gray-300 border-gray-600';
+    const rec = recommendation.toLowerCase();
+    if (rec.includes('strong')) {
+      return 'bg-orange-900/50 text-orange-300 border-orange-700';
+    } else if (rec.includes('good')) {
+      return 'bg-green-900/50 text-green-300 border-green-700';
+    } else if (rec.includes('decent')) {
+      return 'bg-blue-900/50 text-blue-300 border-blue-700';
     }
+    return 'bg-gray-700/50 text-gray-300 border-gray-600';
   };
 
   const getRecommendationIcon = (recommendation: string) => {
-    switch (recommendation.toLowerCase()) {
-      case 'strong bet':
-        return '🔥';
-      case 'good bet':
-        return '✅';
-      case 'decent bet':
-        return '📈';
-      default:
-        return '📊';
-    }
+    const rec = recommendation.toLowerCase();
+    if (rec.includes('strong')) return '🔥';
+    if (rec.includes('good')) return '✅';
+    if (rec.includes('decent')) return '📈';
+    return '📊';
   };
 
   const formatPercentage = (value: number) => {
     return `${value > 0 ? '+' : ''}${value.toFixed(1)}%`;
   };
 
-  const strongBets = opportunities.filter(opp => opp.ev_percentage >= 2.5);
-  const goodBets = opportunities.filter(opp => opp.ev_percentage >= 1.5 && opp.ev_percentage < 2.5);
-  const decentBets = opportunities.filter(opp => opp.ev_percentage >= 1.0 && opp.ev_percentage < 1.5);
+  // Calculate bet counts
+  const strongBetsCount = opportunities.filter(opp => opp.ev_percentage >= 2.5).length;
+  const goodBetsCount = opportunities.filter(opp => opp.ev_percentage >= 1.5 && opp.ev_percentage < 2.5).length;
+  const decentBetsCount = opportunities.filter(opp => opp.ev_percentage >= 1.0 && opp.ev_percentage < 1.5).length;
 
   return (
     <div className="bg-gray-800 rounded-lg border border-gray-700">
@@ -241,7 +233,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     🔥 Strong Bet:
                   </span>
                   <span className="text-gray-400">
-                    {strongBets.length} (>2.5% EV)
+                    {strongBetsCount} ({'>'}2.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -249,7 +241,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     ✅ Good Bet:
                   </span>
                   <span className="text-gray-400">
-                    {goodBets.length} (>1.5% EV)
+                    {goodBetsCount} ({'>'}1.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -257,7 +249,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     📈 Decent Bet:
                   </span>
                   <span className="text-gray-400">
-                    {decentBets.length} (>1.0% EV)
+                    {decentBetsCount} ({'>'}=1.0% EV)
                   </span>
                 </div>
               </div>
@@ -266,7 +258,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
         )}
 
         {/* Refresh Button */}
-        {eventId && !loading && (
+        {!loading && (
           <div className="mt-4 pt-4 border-t border-gray-700">
             <button
               onClick={fetchEVOpportunities}

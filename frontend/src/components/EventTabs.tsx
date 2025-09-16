@@ -34,7 +34,7 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
       const response = await fetch('https://mma-ev-tool.onrender.com/api/events');
       const result = await response.json();
       
-      if (result.success && result.data) {
+      if (result.success && result.data && Array.isArray(result.data)) {
         setEvents(result.data);
         // Auto-select first event if none selected and events exist
         if (result.data.length > 0 && !selectedEventId) {
@@ -55,7 +55,10 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
 
   const formatDate = (dateString: string) => {
     try {
+      if (!dateString) return 'Unknown Date';
       const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'Unknown Date';
+      
       return date.toLocaleDateString('en-US', { 
         month: 'short', 
         day: 'numeric',
@@ -68,6 +71,7 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
 
   const isUpcoming = (dateString: string) => {
     try {
+      if (!dateString) return false;
       const eventDate = new Date(dateString);
       const now = new Date();
       return eventDate > now;
@@ -103,7 +107,7 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
     );
   }
 
-  if (events.length === 0) {
+  if (!events || events.length === 0) {
     return (
       <div className="w-full">
         <div className="bg-gray-800 rounded-lg p-6 text-center">
@@ -131,6 +135,8 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
       {/* Event Tabs */}
       <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
         {events.map((event, index) => {
+          if (!event || !event.event_id) return null;
+          
           const upcoming = isUpcoming(event.event_date);
           const isSelected = selectedEventId === event.event_id;
           
@@ -157,7 +163,7 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
               <div className="space-y-1">
                 {/* Event Name */}
                 <div className={`font-medium text-sm truncate ${isSelected ? 'text-white' : 'text-gray-200'}`}>
-                  {event.event_name}
+                  {event.event_name || 'Unknown Event'}
                 </div>
                 
                 {/* Event Details */}
@@ -168,7 +174,7 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
                   </span>
                   <span className="flex items-center">
                     <Users className="w-3 h-3 mr-1" />
-                    {event.fights_count} fights
+                    {event.fights_count || 0} fights
                   </span>
                 </div>
                 
@@ -193,3 +199,9 @@ export default function EventTabs({ onEventSelect, selectedEventId }: EventTabsP
       </div>
 
       {/* Mobile scroll hint */}
+      <div className="md:hidden mt-2 text-xs text-gray-500 text-center">
+        ← Scroll to see more events →
+      </div>
+    </div>
+  );
+}
