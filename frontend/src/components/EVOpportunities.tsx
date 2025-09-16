@@ -29,10 +29,64 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
+    const fetchEVOpportunities = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        let url = 'https://mma-ev-tool.onrender.com/api/ev-opportunities';
+        
+        if (eventId) {
+          url = `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`;
+        }
+
+        const response = await fetch(url);
+        const result = await response.json();
+
+        if (result.success) {
+          setOpportunities(result.data || []);
+          setLastUpdated(new Date().toISOString());
+        } else {
+          setError('Failed to load opportunities');
+          setOpportunities([]);
+        }
+      } catch (error) {
+        console.error('Failed to fetch EV opportunities:', error);
+        setError('Network error');
+        setOpportunities([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchEVOpportunities();
   }, [eventId]);
 
-  const fetchEVOpportunities = async () => {
+  const getRecommendationStyle = (recommendation: string) => {
+    const rec = recommendation.toLowerCase();
+    if (rec.includes('strong')) {
+      return 'bg-orange-900/50 text-orange-300 border-orange-700';
+    } else if (rec.includes('good')) {
+      return 'bg-green-900/50 text-green-300 border-green-700';
+    } else if (rec.includes('decent')) {
+      return 'bg-blue-900/50 text-blue-300 border-blue-700';
+    }
+    return 'bg-gray-700/50 text-gray-300 border-gray-600';
+  };
+
+  const getRecommendationIcon = (recommendation: string) => {
+    const rec = recommendation.toLowerCase();
+    if (rec.includes('strong')) return '🔥';
+    if (rec.includes('good')) return '✅';
+    if (rec.includes('decent')) return '📈';
+    return '📊';
+  };
+
+  const formatPercentage = (value: number) => {
+    return `${value > 0 ? '+' : ''}${value.toFixed(1)}%`;
+  };
+
+  const refetchData = async () => {
     setLoading(true);
     setError(null);
 
@@ -60,30 +114,6 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
     } finally {
       setLoading(false);
     }
-  };
-
-  const getRecommendationStyle = (recommendation: string) => {
-    const rec = recommendation.toLowerCase();
-    if (rec.includes('strong')) {
-      return 'bg-orange-900/50 text-orange-300 border-orange-700';
-    } else if (rec.includes('good')) {
-      return 'bg-green-900/50 text-green-300 border-green-700';
-    } else if (rec.includes('decent')) {
-      return 'bg-blue-900/50 text-blue-300 border-blue-700';
-    }
-    return 'bg-gray-700/50 text-gray-300 border-gray-600';
-  };
-
-  const getRecommendationIcon = (recommendation: string) => {
-    const rec = recommendation.toLowerCase();
-    if (rec.includes('strong')) return '🔥';
-    if (rec.includes('good')) return '✅';
-    if (rec.includes('decent')) return '📈';
-    return '📊';
-  };
-
-  const formatPercentage = (value: number) => {
-    return `${value > 0 ? '+' : ''}${value.toFixed(1)}%`;
   };
 
   // Calculate bet counts
@@ -128,7 +158,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
             <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
             <p className="text-red-300 text-sm mb-3">{error}</p>
             <button
-              onClick={fetchEVOpportunities}
+              onClick={refetchData}
               className="text-red-400 hover:text-red-300 underline text-sm"
             >
               Try again
@@ -249,7 +279,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     📈 Decent Bet:
                   </span>
                   <span className="text-gray-400">
-                    {decentBetsCount} ({'>'}=1.0% EV)
+                    {decentBetsCount} ({'>'}1.0% EV)
                   </span>
                 </div>
               </div>
@@ -261,7 +291,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
         {!loading && (
           <div className="mt-4 pt-4 border-t border-gray-700">
             <button
-              onClick={fetchEVOpportunities}
+              onClick={refetchData}
               className="w-full flex items-center justify-center py-2 text-sm text-gray-400 hover:text-gray-300 transition-colors"
             >
               <RefreshCw className="w-4 h-4 mr-1" />
