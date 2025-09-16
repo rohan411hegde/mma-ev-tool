@@ -32,13 +32,13 @@ jobs:
         sudo apt-get update
         
         # Install dependencies
-        sudo apt-get install -y wget gnupg
+        sudo apt-get install -y wget gnupg unzip
         
-        # Add Google's signing key
-        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        # Add Google's signing key (using new method)
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome-keyring.gpg
         
         # Add Google Chrome repository
-        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+        echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
         
         # Update package lists again
         sudo apt-get update
@@ -46,17 +46,50 @@ jobs:
         # Install Google Chrome
         sudo apt-get install -y google-chrome-stable
         
-        # Verify Chrome installation
-        google-chrome --version
+        # Get Chrome version
+        CHROME_VERSION=$(google-chrome --version | cut -d " " -f3)
+        echo "Chrome version: $CHROME_VERSION"
         
-        # Install ChromeDriver
-        CHROME_VERSION=$(google-chrome --version | cut -d " " -f3 | cut -d "." -f1)
-        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
-        wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
-        sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
+        # Install ChromeDriver using the new Chrome for Testing API
+        # For Chrome 115+, use the new versioning API
+        CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d "." -f1)
+        echo "Chrome major version: $CHROME_MAJOR_VERSION"
+        
+        if [ "$CHROME_MAJOR_VERSION" -ge 115 ]; then
+          # Use new Chrome for Testing API for versions 115+
+          CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_$CHROME_MAJOR_VERSION")
+          if [ -z "$CHROMEDRIVER_VERSION" ]; then
+            # Fallback to latest stable if specific version not found
+            CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE")
+          fi
+          CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip"
+        else
+          # Use old API for versions < 115
+          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION}")
+          CHROMEDRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
+        fi
+        
+        echo "ChromeDriver version: $CHROMEDRIVER_VERSION"
+        echo "ChromeDriver URL: $CHROMEDRIVER_URL"
+        
+        # Download and install ChromeDriver
+        wget -O /tmp/chromedriver.zip "$CHROMEDRIVER_URL"
+        cd /tmp
+        unzip chromedriver.zip
+        
+        # Move chromedriver to system path
+        if [ -f "chromedriver-linux64/chromedriver" ]; then
+          # New format (Chrome for Testing)
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+        else
+          # Old format
+          sudo mv chromedriver /usr/local/bin/chromedriver
+        fi
+        
         sudo chmod +x /usr/local/bin/chromedriver
         
-        # Verify ChromeDriver installation
+        # Verify installations
+        google-chrome --version
         chromedriver --version
         
     - name: Install Python dependencies
