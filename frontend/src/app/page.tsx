@@ -6,12 +6,11 @@ import EventCard from '@/components/EventCard';
 import EVOpportunities from '@/components/EVOpportunities';
 import { Target, TrendingUp, BarChart3, Calendar } from 'lucide-react';
 
-// Use a generic type to avoid conflicts with EventCard's Fight interface
 interface EventData {
   event_id: string;
   event_name: string;
   event_date: string;
-  fights: any[]; // Use any[] to avoid type conflicts with EventCard
+  fights: unknown[];
   fights_count: number;
   scraped_at: string;
   url?: string;
@@ -68,15 +67,21 @@ export default function Home() {
     }
   };
 
-  const getSportsbooksCount = (fights: any[]) => {
+  const getSportsbooksCount = (fights: unknown[]) => {
     const books = new Set<string>();
     fights.forEach(fight => {
-      if (fight.odds_data && Array.isArray(fight.odds_data)) {
-        fight.odds_data.forEach((odds: any) => {
-          if (odds && odds.book) {
-            books.add(odds.book);
-          }
-        });
+      if (fight && typeof fight === 'object' && 'odds_data' in fight) {
+        const fightObj = fight as { odds_data?: unknown[] };
+        if (fightObj.odds_data && Array.isArray(fightObj.odds_data)) {
+          fightObj.odds_data.forEach((odds: unknown) => {
+            if (odds && typeof odds === 'object' && 'book' in odds) {
+              const oddsObj = odds as { book: string };
+              if (oddsObj.book) {
+                books.add(oddsObj.book);
+              }
+            }
+          });
+        }
       }
     });
     return books.size;
@@ -214,7 +219,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <EventCard 
-                    fights={eventData.fights}
+                    fights={eventData.fights as any}
                     eventName={eventData.event_name}
                     eventDate={eventData.event_date}
                   />
