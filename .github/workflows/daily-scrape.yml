@@ -1,22 +1,20 @@
-name: Daily Odds Scraping
-
-# Add these permissions
-permissions:
-  contents: write
+name: Daily UFC Odds Scrape
 
 on:
   schedule:
-    - cron: '0 13 * * *'
+    - cron: '0 13 * * *'  # 9 AM EST (13:00 UTC)
   workflow_dispatch:
     inputs:
       event_url:
-        description: 'FightOdds.io Event URL'
+        description: 'UFC Event URL to scrape'
         required: false
-        default: 'https://fightodds.io'
+        default: 'https://fightodds.io/odds/6602/ufc-fight-night-ulberg-vs-reyes'
+
+permissions:
+  contents: write
 
 jobs:
-  # ... rest of your workflow
-  scrape-and-update:
+  scrape:
     runs-on: ubuntu-latest
     
     steps:
@@ -28,46 +26,57 @@ jobs:
       with:
         python-version: '3.11'
         
-    - name: Install Chrome and dependencies
+    - name: Install Chrome and ChromeDriver
       run: |
+        # Update package lists
         sudo apt-get update
-        sudo apt-get install -y chromium-browser chromium-chromedriver
+        
+        # Install dependencies
+        sudo apt-get install -y wget gnupg
+        
+        # Add Google's signing key
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        
+        # Add Google Chrome repository
+        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+        
+        # Update package lists again
+        sudo apt-get update
+        
+        # Install Google Chrome
+        sudo apt-get install -y google-chrome-stable
+        
+        # Verify Chrome installation
+        google-chrome --version
+        
+        # Install ChromeDriver
+        CHROME_VERSION=$(google-chrome --version | cut -d " " -f3 | cut -d "." -f1)
+        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
+        wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
+        sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+        
+        # Verify ChromeDriver installation
+        chromedriver --version
         
     - name: Install Python dependencies
       run: |
         cd backend
-        pip install selenium beautifulsoup4 requests python-dateutil
+        pip install -r requirements.txt
         
     - name: Run scraper
       run: |
         cd backend
-        # For now, use a default URL - you'll need to update this
-        python selenium_scraper_automated.py 'https://fightodds.io'
-      env:
-        # Tell Selenium to use system Chrome
-        CHROME_BIN: /usr/bin/chromium-browser
-        CHROMEDRIVER_PATH: /usr/bin/chromedriver
+        python selenium_scraper_automated.py
         
-    - name: Update data files
-      run: |
-        # Check if data was actually updated
-        if [ -f data/fights.json ]; then
-          echo "Data files updated successfully"
-          ls -la data/
-        else
-          echo "No data files found - scraping may have failed"
-          exit 1
-        fi
-        
-    - name: Commit and push changes
+    - name: Commit and push data
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add backend/data/  # ← Add from the correct path
-        # Only commit if there are changes
+        git add backend/data/
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "Daily odds update - $(date +'%Y-%m-%d %H:%M UTC')"
+          git commit -m "Update fight data - $(date)"
           git push
         fi
