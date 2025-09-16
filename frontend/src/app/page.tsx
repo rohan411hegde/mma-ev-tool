@@ -1,248 +1,285 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import EventCard from '@/components/EventCard'
-import EVOpportunities from '@/components/EVOpportunities'
-import { TrendingUp, Target, Calendar, BarChart3 } from 'lucide-react'
-import Link from 'next/link'
-
-
-interface FighterOdds {
-  book: string
-  fighter1_odds: number
-  fighter2_odds: number
-}
+import { useState, useEffect } from 'react';
+import EventTabs from '@/components/EventTabs';
+import EventCard from '@/components/EventCard';
+import EVOpportunities from '@/components/EVOpportunities';
+import { Target, TrendingUp, BarChart3, Calendar } from 'lucide-react';
 
 interface Fight {
-  fighter1: string
-  fighter2: string
-  event_name: string
-  event_date: string
-  weight_class: string
-  odds: FighterOdds[]
-  scraped_at: string
+  fighter1: string;
+  fighter2: string;
+  event_name: string;
+  event_date: string;
+  weight_class: string;
+  odds_data: Array<{
+    fighter_name: string;
+    odds: number;
+    book: string;
+  }>;
+  scraped_at?: string;
 }
 
-interface EVOpportunity {
-  fighter: string
-  book: string
-  ev_percentage: number
-  confidence_score: number
-  sharp_consensus_prob: number
-  square_prob: number
-  recommendation: string
-  fight_info: string
-  kelly_size?: number
-  kelly_dollars?: number
-  kelly_units?: number
-  kelly_category?: string
+interface EventData {
+  event_id: string;
+  event_name: string;
+  event_date: string;
+  fights: Fight[];
+  fights_count: number;
+  scraped_at: string;
+  url?: string;
+}
+
+interface StatsData {
+  total_events: number;
+  total_fights: number;
+  total_opportunities: number;
+  avg_ev_edge: number;
 }
 
 export default function Home() {
-  const [fights, setFights] = useState<Fight[]>([])
-  const [evOpportunities, setEVOpportunities] = useState<EVOpportunity[]>([])
-  const [loading, setLoading] = useState(true)
+  const [selectedEventId, setSelectedEventId] = useState<string>('');
+  const [eventData, setEventData] = useState<EventData | null>(null);
+  const [stats, setStats] = useState<StatsData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    loadData()
-  }, [])
+    fetchStats();
+  }, []);
 
-  const loadData = async () => {
+  useEffect(() => {
+    if (selectedEventId) {
+      fetchEventData(selectedEventId);
+    }
+  }, [selectedEventId]);
+
+  const fetchStats = async () => {
     try {
-      setLoading(true)
+      const response = await fetch('https://mma-ev-tool.onrender.com/api/stats');
+      const result = await response.json();
       
-      // Load fights from API
-      const fightsResponse = await fetch('https://mma-ev-tool.onrender.com/api/fights')
-      const fightsData = await fightsResponse.json()
-      
-      // Load EV opportunities from API  
-      const evResponse = await fetch('https://mma-ev-tool.onrender.com/api/ev-opportunities')
-      const evData = await evResponse.json()
-      
-      if (fightsData.success) {
-        setFights(fightsData.fights)
+      if (result.success) {
+        setStats(result.data);
       }
-      
-      if (evData.success) {
-        setEVOpportunities(evData.opportunities)
-      }
-      
-      setLoading(false)
-      
     } catch (error) {
-      console.error('Error loading data:', error)
+      console.error('Failed to fetch stats:', error);
+    }
+  };
+
+  const fetchEventData = async (eventId: string) => {
+    if (!eventId) return;
+    
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch(`https://mma-ev-tool.onrender.com/api/events/${eventId}/fights`);
+      const result = await response.json();
       
-      // Fallback to sample data if API fails
-      const sampleFights: Fight[] = [
-        {
-          fighter1: "Jon Jones",
-          fighter2: "Tom Aspinall", 
-          event_name: "UFC 309",
-          event_date: "2024-11-16",
-          weight_class: "Heavyweight",
-          odds: [
-            { book: "Pinnacle", fighter1_odds: -150, fighter2_odds: 130 },
-            { book: "DraftKings", fighter1_odds: -135, fighter2_odds: 115 }
-          ],
-          scraped_at: new Date().toISOString()
-        }
-      ]
-
-      const sampleEVs: EVOpportunity[] = [
-        {
-          fighter: "Jon Jones",
-          book: "DraftKings", 
-          ev_percentage: 2.2,
-          confidence_score: 68.1,
-          sharp_consensus_prob: 57.5,
-          square_prob: 55.3,
-          recommendation: "✅ GOOD BET",
-          fight_info: "Jon Jones vs Tom Aspinall",
-          kelly_size: 2.2,
-          kelly_dollars: 22.0,
-          kelly_units: 2.2,
-          kelly_category: "💪 MEDIUM"
-        }
-      ]
-
-      setFights(sampleFights)
-      setEVOpportunities(sampleEVs)
-      setLoading(false)
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
-          <p className="text-gray-300 mt-4">Loading fight data...</p>
-        </div>
-      </div>
-    )
-  }
-
-  const totalEVOps = evOpportunities.length
-  const strongBets = evOpportunities.filter(ev => ev.ev_percentage >= 2.5).length
-  const avgEV = evOpportunities.length > 0 
-    ? evOpportunities.reduce((sum, ev) => sum + ev.ev_percentage, 0) / evOpportunities.length 
-    : 0
-
-  // Group fights by event
-  const groupedFights = fights.reduce((acc, fight) => {
-    const eventName = fight.event_name
-    if (!acc[eventName]) {
-      acc[eventName] = {
-        eventName: eventName,
-        eventDate: fight.event_date,
-        fights: []
+      if (result.success) {
+        setEventData(result.data);
+      } else {
+        setError(result.error || 'Failed to load event data');
+        setEventData(null);
       }
+    } catch (error) {
+      console.error('Failed to fetch event data:', error);
+      setError('Network error - could not load event data');
+      setEventData(null);
+    } finally {
+      setLoading(false);
     }
-    acc[eventName].fights.push(fight)
-    return acc
-  }, {} as Record<string, { eventName: string; eventDate: string; fights: Fight[] }>)
+  };
 
-  const events = Object.values(groupedFights)
+  const formatDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    } catch {
+      return 'Unknown Date';
+    }
+  };
+
+  const getSportsbooks = (fights: Fight[]) => {
+    const books = new Set<string>();
+    fights.forEach(fight => {
+      fight.odds_data.forEach(odds => {
+        books.add(odds.book);
+      });
+    });
+    return Array.from(books);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
-      {/* Header */}
-      <header className="bg-black/20 backdrop-blur-sm border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-                🥊 <span>MMA EV Tool</span>
-              </h1>
-              <p className="text-gray-300 mt-1">Sharp vs Square Betting Analysis</p>
-            </div>
-            <div className="flex items-center gap-6">
-              <nav className="flex items-center gap-4">
-               <Link href="/" className="text-white hover:text-orange-400 font-medium">Dashboard</Link>
-                <a href="/tracking" className="text-gray-300 hover:text-orange-400 font-medium">Bet Tracking</a>
-              </nav>
-              <div className="text-right">
-                <p className="text-gray-300 text-sm">Last Updated</p>
-                <p className="text-white font-medium">
-                  {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+    <div className="min-h-screen bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-white mb-2">
+            MMA Expected Value Tool
+          </h1>
+          <p className="text-gray-400">
+            Find profitable betting opportunities using sharp vs square betting analysis
+          </p>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-400">Total Opportunities</p>
+                <p className="text-2xl font-bold text-white">
+                  {stats?.total_opportunities || 0}
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Stats Bar */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-300 text-sm">Total Opportunities</p>
-                <p className="text-2xl font-bold text-white">{totalEVOps}</p>
-              </div>
-              <Target className="h-8 w-8 text-orange-500" />
+              <Target className="w-8 h-8 text-orange-500" />
             </div>
           </div>
 
-          <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-300 text-sm">Strong Bets</p>
-                <p className="text-2xl font-bold text-green-400">{strongBets}</p>
+                <p className="text-sm text-gray-400">Strong Bets</p>
+                <p className="text-2xl font-bold text-green-400">0</p>
               </div>
-              <TrendingUp className="h-8 w-8 text-green-400" />
+              <TrendingUp className="w-8 h-8 text-green-500" />
             </div>
           </div>
 
-          <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-300 text-sm">Avg EV Edge</p>
-                <p className="text-2xl font-bold text-blue-400">+{avgEV.toFixed(1)}%</p>
+                <p className="text-sm text-gray-400">Avg EV Edge</p>
+                <p className="text-2xl font-bold text-blue-400">
+                  +{stats?.avg_ev_edge?.toFixed(1) || '0.0'}%
+                </p>
               </div>
-              <BarChart3 className="h-8 w-8 text-blue-400" />
+              <BarChart3 className="w-8 h-8 text-blue-500" />
             </div>
           </div>
 
-          <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-300 text-sm">Active Events</p>
-                <p className="text-2xl font-bold text-white">{fights.length}</p>
+                <p className="text-sm text-gray-400">Active Events</p>
+                <p className="text-2xl font-bold text-purple-400">
+                  {stats?.total_events || 0}
+                </p>
               </div>
-              <Calendar className="h-8 w-8 text-purple-400" />
+              <Calendar className="w-8 h-8 text-purple-500" />
             </div>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Fight Cards */}
-          <div className="lg:col-span-2">
-            <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <Calendar className="h-5 w-5" />
-              Upcoming Events
-            </h2>
-            <div className="space-y-6">
-              {events.map((event, index) => (
-                <EventCard 
-                  key={event.eventName}
-                  eventName={event.eventName}
-                  eventDate={event.eventDate}
-                  fights={event.fights}
-                  isDefaultOpen={index === 0} // Only first event open by default
-                />
-              ))}
+        {/* Event Tabs */}
+        <EventTabs 
+          onEventSelect={setSelectedEventId}
+          selectedEventId={selectedEventId}
+        />
+
+        {/* Loading State */}
+        {loading && (
+          <div className="mt-8 text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading event data...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <div className="mt-8">
+            <div className="bg-red-900/20 border border-red-700 rounded-lg p-6 text-center">
+              <p className="text-red-300 mb-2">{error}</p>
+              <button 
+                onClick={() => selectedEventId && fetchEventData(selectedEventId)}
+                className="text-red-400 hover:text-red-300 underline text-sm"
+              >
+                Try again
+              </button>
             </div>
           </div>
+        )}
 
-          {/* EV Opportunities Sidebar */}
-          <div>
-            <EVOpportunities opportunities={evOpportunities} />
+        {/* Event Data Display */}
+        {eventData && !loading && !error && (
+          <div className="mt-8">
+            {/* Selected Event Info Card */}
+            <div className="bg-gray-800 rounded-lg p-6 mb-6 border border-gray-700">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                    <Calendar className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">
+                      {eventData.event_name}
+                    </h3>
+                    <div className="flex items-center space-x-4 text-sm text-gray-400 mt-1">
+                      <span>📅 {formatDate(eventData.event_date)}</span>
+                      <span>🥊 {eventData.fights.length} Fights</span>
+                      <span>📊 {getSportsbooks(eventData.fights).length} Sportsbooks</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-white">
+                    {eventData.fights.length}
+                  </div>
+                  <div className="text-sm text-gray-400">Fights</div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    Updated: {new Date(eventData.scraped_at).toLocaleTimeString()}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Fights List */}
+              <div className="lg:col-span-2 space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
+                  Fight Card ({eventData.fights.length} fights)
+                </h3>
+                
+                {eventData.fights.length === 0 ? (
+                  <div className="bg-gray-800 rounded-lg p-8 text-center border border-gray-700">
+                    <p className="text-gray-400">No fights found for this event</p>
+                  </div>
+                ) : (
+                  eventData.fights.map((fight, index) => (
+                    <EventCard key={`${fight.fighter1}-${fight.fighter2}-${index}`} fight={fight} />
+                  ))
+                )}
+              </div>
+              
+              {/* EV Opportunities Sidebar */}
+              <div className="lg:col-span-1">
+                <EVOpportunities eventId={selectedEventId} />
+              </div>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Empty State */}
+        {!eventData && !loading && !error && selectedEventId && (
+          <div className="mt-8">
+            <div className="bg-gray-800 rounded-lg p-8 text-center border border-gray-700">
+              <Calendar className="w-12 h-12 text-gray-500 mx-auto mb-4" />
+              <p className="text-gray-400 mb-2">No event data available</p>
+              <p className="text-sm text-gray-500">
+                Select an event from the tabs above to view fight data
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
