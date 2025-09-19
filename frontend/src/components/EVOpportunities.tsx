@@ -27,40 +27,63 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+  const [dataSource, setDataSource] = useState<string>('');
 
   useEffect(() => {
-    const fetchEVOpportunities = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        let url = 'https://mma-ev-tool.onrender.com/api/ev-opportunities';
-        
-        if (eventId) {
-          url = `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`;
-        }
-
-        const response = await fetch(url);
-        const result = await response.json();
-
-        if (result.success) {
-          setOpportunities(result.data || []);
-          setLastUpdated(new Date().toISOString());
-        } else {
-          setError('Failed to load opportunities');
-          setOpportunities([]);
-        }
-      } catch (error) {
-        console.error('Failed to fetch EV opportunities:', error);
-        setError('Network error');
-        setOpportunities([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchEVOpportunities();
   }, [eventId]);
+
+  const fetchEVOpportunities = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      let url = '';
+      let source = '';
+      
+      // Try event-specific API first if we have an eventId
+      if (eventId) {
+        url = `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`;
+        source = `Event ${eventId}`;
+        
+        try {
+          const response = await fetch(url);
+          const result = await response.json();
+
+          if (result.success && result.data) {
+            setOpportunities(result.data);
+            setLastUpdated(new Date().toISOString());
+            setDataSource(source);
+            return;
+          }
+        } catch (eventError) {
+          console.log('Event-specific API failed, trying fallback...', eventError);
+        }
+      }
+
+      // Fallback to original API endpoint
+      url = 'https://mma-ev-tool.onrender.com/api/ev-opportunities';
+      source = 'Latest Events';
+      
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (result.success) {
+        setOpportunities(result.data || []);
+        setLastUpdated(new Date().toISOString());
+        setDataSource(source);
+      } else {
+        setError(result.error || 'Failed to load opportunities');
+        setOpportunities([]);
+      }
+    } catch (error) {
+      console.error('Failed to fetch EV opportunities:', error);
+      setError('Network error - server may be starting up');
+      setOpportunities([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const getRecommendationStyle = (recommendation: string) => {
     const rec = recommendation.toLowerCase();
@@ -86,36 +109,6 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
     return `${value > 0 ? '+' : ''}${value.toFixed(1)}%`;
   };
 
-  const refetchData = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      let url = 'https://mma-ev-tool.onrender.com/api/ev-opportunities';
-      
-      if (eventId) {
-        url = `https://mma-ev-tool.onrender.com/api/events/${eventId}/ev-opportunities`;
-      }
-
-      const response = await fetch(url);
-      const result = await response.json();
-
-      if (result.success) {
-        setOpportunities(result.data || []);
-        setLastUpdated(new Date().toISOString());
-      } else {
-        setError('Failed to load opportunities');
-        setOpportunities([]);
-      }
-    } catch (error) {
-      console.error('Failed to fetch EV opportunities:', error);
-      setError('Network error');
-      setOpportunities([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Calculate bet counts
   const strongBetsCount = opportunities.filter(opp => opp.ev_percentage >= 2.5).length;
   const goodBetsCount = opportunities.filter(opp => opp.ev_percentage >= 1.5 && opp.ev_percentage < 2.5).length;
@@ -138,9 +131,10 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
         </div>
         
         {lastUpdated && (
-          <p className="text-xs text-gray-500 mt-1">
-            Last updated: {new Date(lastUpdated).toLocaleTimeString()}
-          </p>
+          <div className="text-xs text-gray-500 mt-1">
+            <p>Source: {dataSource}</p>
+            <p>Updated: {new Date(lastUpdated).toLocaleTimeString()}</p>
+          </div>
         )}
       </div>
 
@@ -149,17 +143,20 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
         {loading && (
           <div className="flex items-center justify-center py-8">
             <RefreshCw className="w-6 h-6 text-orange-500 animate-spin mr-2" />
-            <span className="text-gray-400">Calculating opportunities...</span>
+            <span className="text-gray-400">Loading opportunities...</span>
           </div>
         )}
 
         {error && !loading && (
           <div className="text-center py-8">
-            <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-            <p className="text-red-300 text-sm mb-3">{error}</p>
+            <AlertCircle className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
+            <p className="text-yellow-300 text-sm mb-2">{error}</p>
+            <p className="text-xs text-gray-500 mb-3">
+              The backend server may be starting up (takes ~30 seconds)
+            </p>
             <button
-              onClick={refetchData}
-              className="text-red-400 hover:text-red-300 underline text-sm"
+              onClick={fetchEVOpportunities}
+              className="text-orange-400 hover:text-orange-300 underline text-sm"
             >
               Try again
             </button>
@@ -170,7 +167,9 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
           <div className="text-center py-8">
             <Target className="w-12 h-12 text-gray-500 mx-auto mb-4" />
             <p className="text-gray-400 mb-2">No +EV opportunities found</p>
-            <p className="text-sm text-gray-500">Check back after odds update</p>
+            <p className="text-sm text-gray-500">
+              {dataSource ? `Source: ${dataSource}` : 'Check back after odds update'}
+            </p>
           </div>
         )}
 
@@ -263,7 +262,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     🔥 Strong Bet:
                   </span>
                   <span className="text-gray-400">
-                    {strongBetsCount} ({'>'}2.5% EV)
+                    {strongBetsCount} (>2.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -271,7 +270,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     ✅ Good Bet:
                   </span>
                   <span className="text-gray-400">
-                    {goodBetsCount} ({'>'}1.5% EV)
+                    {goodBetsCount} (>1.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -279,7 +278,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     📈 Decent Bet:
                   </span>
                   <span className="text-gray-400">
-                    {decentBetsCount} ({'>'}1.0% EV)
+                    {decentBetsCount} (>1.0% EV)
                   </span>
                 </div>
               </div>
@@ -291,7 +290,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
         {!loading && (
           <div className="mt-4 pt-4 border-t border-gray-700">
             <button
-              onClick={refetchData}
+              onClick={fetchEVOpportunities}
               className="w-full flex items-center justify-center py-2 text-sm text-gray-400 hover:text-gray-300 transition-colors"
             >
               <RefreshCw className="w-4 h-4 mr-1" />

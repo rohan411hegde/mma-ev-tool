@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import EventTabs from '@/components/EventTabs';
 import EventCard from '@/components/EventCard';
 import EVOpportunities from '@/components/EVOpportunities';
-import { Target, TrendingUp, BarChart3, Calendar } from 'lucide-react';
+import { Target, TrendingUp, BarChart3, Calendar, Activity } from 'lucide-react';
 
 interface ApiFight {
   fighter1: string;
@@ -98,11 +99,20 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+        {/* Header with Navigation */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">
-            MMA Expected Value Tool
-          </h1>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-3xl font-bold text-white">
+              MMA Expected Value Tool
+            </h1>
+            <Link 
+              href="/tracking"
+              className="flex items-center space-x-2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <Activity className="w-4 h-4" />
+              <span>Bet Tracking</span>
+            </Link>
+          </div>
           <p className="text-gray-400">
             Find profitable betting opportunities using sharp vs square betting analysis
           </p>
