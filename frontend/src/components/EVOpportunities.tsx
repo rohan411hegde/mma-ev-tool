@@ -262,7 +262,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     🔥 Strong Bet:
                   </span>
                   <span className="text-gray-400">
-                    {strongBetsCount} (>2.5% EV)
+                    {strongBetsCount} ({'>'}2.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -270,7 +270,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     ✅ Good Bet:
                   </span>
                   <span className="text-gray-400">
-                    {goodBetsCount} (>1.5% EV)
+                    {goodBetsCount} ({'>'}1.5% EV)
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -278,7 +278,7 @@ export default function EVOpportunities({ eventId }: EVOpportunitiesProps) {
                     📈 Decent Bet:
                   </span>
                   <span className="text-gray-400">
-                    {decentBetsCount} (>1.0% EV)
+                    {decentBetsCount} ({'>'}1.0% EV)
                   </span>
                 </div>
               </div>
