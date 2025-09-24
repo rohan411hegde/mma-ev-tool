@@ -3,17 +3,17 @@
     "fighter1": "Carlos Ulberg",
     "fighter2": "Dominick Reyes",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:44.699298",
+    "event_date": "2025-09-24T13:45:02.699905",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Carlos Ulberg",
-        "odds": -260,
+        "odds": -250,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Carlos Ulberg",
-        "odds": -258,
+        "odds": -250,
         "book": "DraftKings"
       },
       {
@@ -23,7 +23,7 @@
       },
       {
         "fighter_name": "Carlos Ulberg",
-        "odds": -257,
+        "odds": -251,
         "book": "Pinnacle"
       },
       {
@@ -33,12 +33,12 @@
       },
       {
         "fighter_name": "Dominick Reyes",
-        "odds": 220,
+        "odds": 210,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Dominick Reyes",
-        "odds": 210,
+        "odds": 205,
         "book": "DraftKings"
       },
       {
@@ -48,7 +48,7 @@
       },
       {
         "fighter_name": "Dominick Reyes",
-        "odds": 214,
+        "odds": 209,
         "book": "Pinnacle"
       },
       {
@@ -57,13 +57,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:44.699309"
+    "scraped_at": "2025-09-24T13:45:02.699918"
   },
   {
     "fighter1": "Jack Jenkins",
     "fighter2": "Ramon Taveras",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:44.802354",
+    "event_date": "2025-09-24T13:45:02.809985",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -83,7 +83,7 @@
       },
       {
         "fighter_name": "Jack Jenkins",
-        "odds": -274,
+        "odds": -276,
         "book": "Pinnacle"
       },
       {
@@ -108,7 +108,7 @@
       },
       {
         "fighter_name": "Ramon Taveras",
-        "odds": 227,
+        "odds": 229,
         "book": "Pinnacle"
       },
       {
@@ -117,18 +117,18 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:44.802363"
+    "scraped_at": "2025-09-24T13:45:02.809998"
   },
   {
     "fighter1": "Jim Crute",
     "fighter2": "Ivan Erslan",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:44.905541",
+    "event_date": "2025-09-24T13:45:02.919461",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Jim Crute",
-        "odds": -173,
+        "odds": -185,
         "book": "BetOnline"
       },
       {
@@ -138,7 +138,7 @@
       },
       {
         "fighter_name": "Jim Crute",
-        "odds": -200,
+        "odds": -196,
         "book": "FanDuel"
       },
       {
@@ -153,7 +153,7 @@
       },
       {
         "fighter_name": "Ivan Erslan",
-        "odds": 148,
+        "odds": 160,
         "book": "BetOnline"
       },
       {
@@ -163,7 +163,7 @@
       },
       {
         "fighter_name": "Ivan Erslan",
-        "odds": 154,
+        "odds": 152,
         "book": "FanDuel"
       },
       {
@@ -177,73 +177,73 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:44.905548"
+    "scraped_at": "2025-09-24T13:45:02.919473"
   },
   {
     "fighter1": "Jake Matthews",
     "fighter2": "Neil Magny",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.008064",
+    "event_date": "2025-09-24T13:45:03.031468",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Jake Matthews",
-        "odds": -405,
+        "odds": -410,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Jake Matthews",
-        "odds": -410,
+        "odds": -380,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Jake Matthews",
-        "odds": -520,
+        "odds": -400,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Jake Matthews",
-        "odds": -434,
+        "odds": -430,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Jake Matthews",
-        "odds": -435,
+        "odds": -395,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Neil Magny",
-        "odds": 335,
+        "odds": 310,
         "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Neil Magny",
+        "odds": 300,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Neil Magny",
+        "odds": 285,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Neil Magny",
+        "odds": 341,
+        "book": "Pinnacle"
       },
       {
         "fighter_name": "Neil Magny",
         "odds": 320,
-        "book": "DraftKings"
-      },
-      {
-        "fighter_name": "Neil Magny",
-        "odds": 350,
-        "book": "FanDuel"
-      },
-      {
-        "fighter_name": "Neil Magny",
-        "odds": 343,
-        "book": "Pinnacle"
-      },
-      {
-        "fighter_name": "Neil Magny",
-        "odds": 350,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.008071"
+    "scraped_at": "2025-09-24T13:45:03.031480"
   },
   {
     "fighter1": "Tom Nolan",
     "fighter2": "Charlie Campbell",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.115947",
+    "event_date": "2025-09-24T13:45:03.140616",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -263,12 +263,12 @@
       },
       {
         "fighter_name": "Tom Nolan",
-        "odds": -155,
+        "odds": -154,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Tom Nolan",
-        "odds": -150,
+        "odds": -145,
         "book": "Circa Sports"
       },
       {
@@ -288,22 +288,22 @@
       },
       {
         "fighter_name": "Charlie Campbell",
-        "odds": 132,
+        "odds": 131,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Charlie Campbell",
-        "odds": 130,
+        "odds": 125,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.115959"
+    "scraped_at": "2025-09-24T13:45:03.140629"
   },
   {
     "fighter1": "Louie Sutherland",
     "fighter2": "Justin Tafa",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.232714",
+    "event_date": "2025-09-24T13:45:03.249681",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -313,17 +313,17 @@
       },
       {
         "fighter_name": "Louie Sutherland",
-        "odds": -102,
+        "odds": -105,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Louie Sutherland",
-        "odds": 102,
+        "odds": -104,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Louie Sutherland",
-        "odds": 101,
+        "odds": -101,
         "book": "Pinnacle"
       },
       {
@@ -338,17 +338,17 @@
       },
       {
         "fighter_name": "Justin Tafa",
-        "odds": -118,
+        "odds": -115,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Justin Tafa",
-        "odds": -130,
+        "odds": -120,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Justin Tafa",
-        "odds": -118,
+        "odds": -116,
         "book": "Pinnacle"
       },
       {
@@ -357,13 +357,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.232725"
+    "scraped_at": "2025-09-24T13:45:03.249694"
   },
   {
     "fighter1": "Navajo Stirling",
     "fighter2": "Rodolfo Bellato",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.339333",
+    "event_date": "2025-09-24T13:45:03.359470",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -383,7 +383,7 @@
       },
       {
         "fighter_name": "Navajo Stirling",
-        "odds": -245,
+        "odds": -241,
         "book": "Pinnacle"
       },
       {
@@ -408,7 +408,7 @@
       },
       {
         "fighter_name": "Rodolfo Bellato",
-        "odds": 204,
+        "odds": 201,
         "book": "Pinnacle"
       },
       {
@@ -417,13 +417,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.339344"
+    "scraped_at": "2025-09-24T13:45:03.359482"
   },
   {
     "fighter1": "Loma Lookboonmee",
     "fighter2": "Alexia Thainara",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.443831",
+    "event_date": "2025-09-24T13:45:03.469030",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -443,7 +443,7 @@
       },
       {
         "fighter_name": "Loma Lookboonmee",
-        "odds": 208,
+        "odds": 210,
         "book": "Pinnacle"
       },
       {
@@ -468,7 +468,7 @@
       },
       {
         "fighter_name": "Alexia Thainara",
-        "odds": -250,
+        "odds": -252,
         "book": "Pinnacle"
       },
       {
@@ -477,13 +477,13 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.443839"
+    "scraped_at": "2025-09-24T13:45:03.469043"
   },
   {
     "fighter1": "Jonathan Micallef",
     "fighter2": "Oban Elliott",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.548786",
+    "event_date": "2025-09-24T13:45:03.577967",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -498,17 +498,17 @@
       },
       {
         "fighter_name": "Jonathan Micallef",
-        "odds": 106,
+        "odds": -102,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Jonathan Micallef",
-        "odds": 103,
+        "odds": 106,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Jonathan Micallef",
-        "odds": -105,
+        "odds": -110,
         "book": "Circa Sports"
       },
       {
@@ -523,87 +523,87 @@
       },
       {
         "fighter_name": "Oban Elliott",
-        "odds": -136,
+        "odds": -125,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Oban Elliott",
-        "odds": -121,
+        "odds": -124,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Oban Elliott",
-        "odds": -115,
+        "odds": -110,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.548798"
+    "scraped_at": "2025-09-24T13:45:03.577980"
   },
   {
     "fighter1": "Andre Petroski",
     "fighter2": "Cam Rowston",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.655146",
+    "event_date": "2025-09-24T13:45:03.687916",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Andre Petroski",
-        "odds": -151,
+        "odds": -160,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Andre Petroski",
-        "odds": -155,
+        "odds": -166,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Andre Petroski",
-        "odds": -146,
+        "odds": -162,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Andre Petroski",
-        "odds": -155,
+        "odds": -164,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Andre Petroski",
-        "odds": -150,
+        "odds": -155,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Cam Rowston",
-        "odds": 131,
+        "odds": 140,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Cam Rowston",
-        "odds": 130,
+        "odds": 140,
         "book": "DraftKings"
       },
       {
         "fighter_name": "Cam Rowston",
-        "odds": 114,
+        "odds": 126,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Cam Rowston",
-        "odds": 133,
+        "odds": 139,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Cam Rowston",
-        "odds": 130,
+        "odds": 135,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.655155"
+    "scraped_at": "2025-09-24T13:45:03.687929"
   },
   {
     "fighter1": "Colby Thicknesse",
     "fighter2": "Josias Musasa",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.758716",
+    "event_date": "2025-09-24T13:45:03.797315",
     "weight_class": "Unknown",
     "odds_data": [
       {
@@ -623,7 +623,7 @@
       },
       {
         "fighter_name": "Colby Thicknesse",
-        "odds": 135,
+        "odds": 137,
         "book": "Pinnacle"
       },
       {
@@ -648,7 +648,7 @@
       },
       {
         "fighter_name": "Josias Musasa",
-        "odds": -159,
+        "odds": -161,
         "book": "Pinnacle"
       },
       {
@@ -657,78 +657,78 @@
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.758725"
+    "scraped_at": "2025-09-24T13:45:03.797327"
   },
   {
     "fighter1": "Jamie Mullarkey",
     "fighter2": "Rolando Bedoya",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.862684",
+    "event_date": "2025-09-24T13:45:03.906391",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Jamie Mullarkey",
-        "odds": -110,
+        "odds": -120,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Jamie Mullarkey",
+        "odds": -112,
+        "book": "DraftKings"
+      },
+      {
+        "fighter_name": "Jamie Mullarkey",
+        "odds": -113,
+        "book": "FanDuel"
+      },
+      {
+        "fighter_name": "Jamie Mullarkey",
+        "odds": -107,
+        "book": "Pinnacle"
+      },
+      {
+        "fighter_name": "Jamie Mullarkey",
+        "odds": -115,
+        "book": "Circa Sports"
+      },
+      {
+        "fighter_name": "Rolando Bedoya",
+        "odds": 100,
+        "book": "BetOnline"
+      },
+      {
+        "fighter_name": "Rolando Bedoya",
         "odds": -108,
         "book": "DraftKings"
       },
       {
-        "fighter_name": "Jamie Mullarkey",
-        "odds": -113,
-        "book": "FanDuel"
-      },
-      {
-        "fighter_name": "Jamie Mullarkey",
-        "odds": -104,
-        "book": "Pinnacle"
-      },
-      {
-        "fighter_name": "Jamie Mullarkey",
-        "odds": -110,
-        "book": "Circa Sports"
-      },
-      {
-        "fighter_name": "Rolando Bedoya",
-        "odds": -110,
-        "book": "BetOnline"
-      },
-      {
-        "fighter_name": "Rolando Bedoya",
-        "odds": -112,
-        "book": "DraftKings"
-      },
-      {
         "fighter_name": "Rolando Bedoya",
         "odds": -113,
         "book": "FanDuel"
       },
       {
         "fighter_name": "Rolando Bedoya",
-        "odds": -112,
+        "odds": -110,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Rolando Bedoya",
-        "odds": -110,
+        "odds": -105,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.862695"
+    "scraped_at": "2025-09-24T13:45:03.906403"
   },
   {
     "fighter1": "Michelle Montague",
     "fighter2": "Luana Carolina",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:45.965849",
+    "event_date": "2025-09-24T13:45:04.016066",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Michelle Montague",
-        "odds": -210,
+        "odds": -220,
         "book": "BetOnline"
       },
       {
@@ -743,17 +743,17 @@
       },
       {
         "fighter_name": "Michelle Montague",
-        "odds": -222,
+        "odds": -225,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Michelle Montague",
-        "odds": -200,
+        "odds": -225,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Luana Carolina",
-        "odds": 180,
+        "odds": 185,
         "book": "BetOnline"
       },
       {
@@ -768,32 +768,32 @@
       },
       {
         "fighter_name": "Luana Carolina",
-        "odds": 186,
+        "odds": 189,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Luana Carolina",
-        "odds": 175,
+        "odds": 195,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:45.965856"
+    "scraped_at": "2025-09-24T13:45:04.016078"
   },
   {
     "fighter1": "Brando Pericic",
     "fighter2": "Elisha Ellison",
     "event_name": "UFC Fight Night Odds",
-    "event_date": "2025-09-23T13:45:46.069709",
+    "event_date": "2025-09-24T13:45:04.125598",
     "weight_class": "Unknown",
     "odds_data": [
       {
         "fighter_name": "Brando Pericic",
-        "odds": -220,
+        "odds": -225,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Brando Pericic",
-        "odds": -198,
+        "odds": -205,
         "book": "DraftKings"
       },
       {
@@ -803,22 +803,22 @@
       },
       {
         "fighter_name": "Brando Pericic",
-        "odds": -192,
+        "odds": -195,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Brando Pericic",
-        "odds": -200,
+        "odds": -210,
         "book": "Circa Sports"
       },
       {
         "fighter_name": "Elisha Ellison",
-        "odds": 185,
+        "odds": 190,
         "book": "BetOnline"
       },
       {
         "fighter_name": "Elisha Ellison",
-        "odds": 164,
+        "odds": 170,
         "book": "DraftKings"
       },
       {
@@ -828,15 +828,15 @@
       },
       {
         "fighter_name": "Elisha Ellison",
-        "odds": 162,
+        "odds": 165,
         "book": "Pinnacle"
       },
       {
         "fighter_name": "Elisha Ellison",
-        "odds": 175,
+        "odds": 180,
         "book": "Circa Sports"
       }
     ],
-    "scraped_at": "2025-09-23T13:45:46.069721"
+    "scraped_at": "2025-09-24T13:45:04.125611"
   }
 ]
