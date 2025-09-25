@@ -5,6 +5,8 @@ from typing import List, Dict, Any, Optional
 
 def american_to_decimal(american_odds: int) -> float:
     """Convert American odds to decimal odds"""
+    if american_odds == 0:
+        return 2.0  # Default to even odds if zero
     if american_odds > 0:
         return (american_odds / 100) + 1
     else:
@@ -12,13 +14,15 @@ def american_to_decimal(american_odds: int) -> float:
 
 def decimal_to_probability(decimal_odds: float) -> float:
     """Convert decimal odds to implied probability"""
+    if decimal_odds <= 0:
+        return 0.5  # Default to 50% if invalid odds
     return 1 / decimal_odds
 
 def remove_vig(prob1: float, prob2: float) -> tuple:
     """Remove vigorish from two probabilities"""
     total = prob1 + prob2
-    if total == 0:
-        return prob1, prob2
+    if total <= 1e-10:  # Check for very small values, not just zero
+        return 0.5, 0.5  # Return 50/50 if invalid
     return prob1 / total, prob2 / total
 
 def calculate_expected_value(true_prob: float, decimal_odds: float) -> float:
@@ -88,48 +92,59 @@ def calculate_ev_for_fighter(fighter_name: str, book: str, odds_data: List[Dict]
             fighter_odds = odds.get('odds')
             break
     
-    if not fighter_odds:
+    if not fighter_odds or fighter_odds == 0:
         return None
     
-    # Get sharp consensus probability (true probability)
-    sharp_prob = get_sharp_consensus_probability(fighter_name, odds_data)
-    
-    # Get square book probability for comparison
-    square_prob = get_square_probability(fighter_name, odds_data)
-    
-    # Calculate EV
-    decimal_odds = american_to_decimal(fighter_odds)
-    ev = calculate_expected_value(sharp_prob, decimal_odds)
-    ev_percentage = ev * 100
-    
-    # Only return if EV is positive and meaningful
-    if ev_percentage < 0.5:  # Less than 0.5% EV is not worth it
+    try:
+        # Get sharp consensus probability (true probability)
+        sharp_prob = get_sharp_consensus_probability(fighter_name, odds_data)
+        
+        # Get square book probability for comparison
+        square_prob = get_square_probability(fighter_name, odds_data)
+        
+        # Validate probabilities
+        if sharp_prob <= 0 or sharp_prob >= 1 or square_prob <= 0 or square_prob >= 1:
+            return None
+        
+        # Calculate EV
+        decimal_odds = american_to_decimal(fighter_odds)
+        if decimal_odds <= 0:
+            return None
+            
+        ev = calculate_expected_value(sharp_prob, decimal_odds)
+        ev_percentage = ev * 100
+        
+        # Only return if EV is positive and meaningful
+        if ev_percentage < 0.5:  # Less than 0.5% EV is not worth it
+            return None
+        
+        # Determine recommendation based on EV
+        if ev_percentage >= 2.5:
+            recommendation = "Strong Bet"
+        elif ev_percentage >= 1.5:
+            recommendation = "Good Bet"
+        elif ev_percentage >= 1.0:
+            recommendation = "Decent Bet"
+        else:
+            recommendation = "Small Edge"
+        
+        # Calculate confidence score based on sample size and edge
+        confidence_score = min(100, ev_percentage * 10)  # Simple confidence scoring
+        
+        return {
+            'fighter': fighter_name,
+            'book': book,
+            'ev_percentage': ev_percentage,
+            'confidence_score': confidence_score,
+            'sharp_consensus_prob': sharp_prob,
+            'square_prob': square_prob,
+            'recommendation': recommendation,
+            'fight_info': f"{fighter_name} odds analysis",
+            'odds': fighter_odds
+        }
+    except Exception as e:
+        print(f"Error calculating EV for {fighter_name} at {book}: {e}")
         return None
-    
-    # Determine recommendation based on EV
-    if ev_percentage >= 2.5:
-        recommendation = "Strong Bet"
-    elif ev_percentage >= 1.5:
-        recommendation = "Good Bet"
-    elif ev_percentage >= 1.0:
-        recommendation = "Decent Bet"
-    else:
-        recommendation = "Small Edge"
-    
-    # Calculate confidence score based on sample size and edge
-    confidence_score = min(100, ev_percentage * 10)  # Simple confidence scoring
-    
-    return {
-        'fighter': fighter_name,
-        'book': book,
-        'ev_percentage': ev_percentage,
-        'confidence_score': confidence_score,
-        'sharp_consensus_prob': sharp_prob,
-        'square_prob': square_prob,
-        'recommendation': recommendation,
-        'fight_info': f"{fighter_name} odds analysis",
-        'odds': fighter_odds
-    }
 
 def calculate_ev_opportunities(fights_data: List[Dict]) -> List[Dict]:
     """
